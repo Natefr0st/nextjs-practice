@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 import styles from '../../styles/Vikings.module.css';
 
 export const getStaticProps = async () => {
@@ -15,11 +16,11 @@ const Vikings = ({vikings}) => {
     <div>
       <h1>All Vikings</h1>
       {vikings.map(viking => (
-        <div key={viking.id}>
+        <Link href={`/vikings/${viking.id}`} key={viking.id}>
           <a className={styles.single}>
             <h3>{viking.name}</h3>
           </a>
-        </div>
+        </Link>
       ))}
     </div>
   );
